@@ -11,10 +11,11 @@ public class Main {
         int opcion;
         double monto;
         Scanner sc = new Scanner(System.in);
-
+        var currencyConverter = new CurrencyConverter(ApiService.getConversionRates());
         do{
             mostrarMenu();
             opcion = sc.nextInt();
+            sc.nextLine();
 
             switch (opcion){
                 case 0:
@@ -22,6 +23,9 @@ public class Main {
                     System.out.println(ApiService.getConversionRates());
                 case 1:
                     System.out.println("Ingresar Monto:");
+                    Double montoIngresado = sc.nextDouble();
+                    currencyConverter.convertirMonto("USD","ARS",montoIngresado);
+
                     break;
                 case 2:
                     break;
