@@ -24,8 +24,6 @@ public class ApiService {
                 .build();
         //3. Enviar solicitud y recibir respuesta
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.statusCode());
-        System.out.println(response.body());
 
         //4. Verifico respuesta
         if( response.statusCode() != 200){
